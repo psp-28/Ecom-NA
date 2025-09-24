@@ -40,6 +40,7 @@ namespace Ecom_NA
             string email = txtEmail.Text.Trim().ToLower();  // lowercase for comparison
             string phone = txtPhone.Text.Trim();
             string password = txtPassword.Text.Trim();
+            //string ConfirmPassword = txtConfirmPassword.Text.Trim();
 
             if (string.IsNullOrEmpty(fullName) || string.IsNullOrEmpty(email)
                || string.IsNullOrEmpty(phone) || string.IsNullOrEmpty(password))
@@ -68,19 +69,24 @@ namespace Ecom_NA
                 }
 
                 // Insert new user
-                string insertQuery = "INSERT INTO tblUsers (FullName, Email, Phone, Password) VALUES (@FullName, @Email, @Phone, @Password)";
+                string insertQuery = "INSERT INTO tblUsers (FullName, Email, Phone, Password, Usertype) VALUES (@FullName, @Email, @Phone, @Password, @Usertype)";
                 using (SqlCommand insertCmd = new SqlCommand(insertQuery, con))
                 {
                     insertCmd.Parameters.AddWithValue("@FullName", fullName);
                     insertCmd.Parameters.AddWithValue("@Email", email);
                     insertCmd.Parameters.AddWithValue("@Phone", phone);
                     insertCmd.Parameters.AddWithValue("@Password", password); // hash this in production
+                    insertCmd.Parameters.AddWithValue("@Usertype", "User");  // fixed role value, due to this if any user is registered, it will be added as user not as a Admin in database.
 
                     int rows = insertCmd.ExecuteNonQuery();
                     if (rows > 0)
                     {
-                        ShowAlert("Registration successfully done!");
-                        ClearForm();
+                        //ShowAlert("Registration successfully done!");
+                        ScriptManager.RegisterStartupScript(this, this.GetType(),"redirect", "alert('Registration successfully done!'); window.location='SignIn.aspx';", true);
+                        Response.Redirect("SignIn.aspx");
+                        //ClearForm();
+                        //clr();
+
                     }
                     else
                     {
@@ -99,11 +105,17 @@ namespace Ecom_NA
         // Helper method to clear form
         private void ClearForm()
         {
-            txtName.Text = "";
-            txtEmail.Text = "";
-            txtPhone.Text = "";
-            txtPassword.Text = "";
+            //txtName.Text = "";
+            //txtEmail.Text = "";
+            //txtPhone.Text = "";
+            //txtPassword.Text = "";
+            txtName.Text = string.Empty;
+            txtEmail.Text = string.Empty;
+            txtPhone.Text = string.Empty;
+            txtPassword.Text = string.Empty;
+            txtConfirmPassword.Text = string.Empty;
         }
+
 
 
     }

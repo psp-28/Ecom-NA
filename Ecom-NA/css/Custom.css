@@ -1,4 +1,82 @@
-﻿.center{
+﻿body {
+    padding-top: 70px; /* adjust height to match your navbar */
+}
+
+/* Make navbar bigger */
+.navbar {
+    padding: 15px 20px; /* increase height */
+    font-size: 10px; /* bigger menu text */
+}
+
+/* Style for brand/logo area */
+.navbar-brand {
+    font-size: 26px; /* bigger text */
+    font-weight: bold;
+    font-family: 'Georgia', serif; /* stylish font */
+    color: #2c3e50 !important;
+    display: flex;
+    align-items: center;
+}
+
+    /* Circle responsive logo */
+    .navbar-brand img {
+        max-width: 100%;
+        height: auto;
+        width: 60px; /* default desktop size */
+        border-radius: 50%;
+        margin-right: 10px;
+        border: 2px solid #2c3e50;
+        animation: spin 6s linear infinite;
+    }
+
+/* Smaller logo for tablets */
+@media (max-width: 992px) {
+    .navbar-brand img {
+        width: 50px;
+    }
+}
+
+/* Even smaller for mobile */
+@media (max-width: 768px) {
+    .navbar-brand img {
+        width: 40px;
+    }
+}
+
+/* Smallest phones */
+@media (max-width: 480px) {
+.navbar-brand img {
+        width: 35px;
+    }
+}
+
+
+/* Simple spinning animation */
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Navbar links */
+.navbar-nav > li > a {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+
+
+
+
+
+
+
+
+.center{
     text-align : center;
 
 }
@@ -155,3 +233,41 @@
         background-color: #c1351d;
     }
 
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 30px;
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.logo img {
+    height: 50px;
+}
+
+.location-service {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+    .location-service select {
+        padding: 6px 10px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+    }
+
+    .location-service button {
+        padding: 6px 12px;
+        background: #007bff;
+        border: none;
+        color: #fff;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+        .location-service button:hover {
+            background: #0056b3;
+        }

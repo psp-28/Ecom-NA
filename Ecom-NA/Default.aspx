@@ -14,11 +14,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link href="css/Custom.css" rel="stylesheet" />
     <script src="js/Customjs.js"></script>
-    <style>
-    body {
-        padding-top: 70px; /* adjust height to match your navbar */
-    }
-</style>
 
     <style>
     
@@ -58,67 +53,7 @@
 </style>
 
 
-    <style>
-    /* Make navbar bigger */
-    .navbar {
-        padding: 15px 20px;      /* increase height */
-        font-size: 14px;         /* bigger menu text */
-    }
-
-    /* Style for brand/logo area */
-    .navbar-brand {
-        font-size: 26px;         /* bigger text */
-        font-weight: bold;
-        font-family: 'Georgia', serif; /* stylish font */
-        color: #2c3e50 !important;
-        display: flex;
-        align-items: center;
-    }
-
-/* Circle responsive logo */
-.navbar-brand img {
-    max-width: 100%;
-    height: auto;
-    width: 60px;              /* default desktop size */
-    border-radius: 50%;
-    margin-right: 10px;
-    border: 2px solid #2c3e50;
-    animation: spin 6s linear infinite;
-}
-
-/* Smaller logo for tablets */
-@media (max-width: 992px) {
-    .navbar-brand img {
-        width: 50px;
-    }
-}
-
-/* Even smaller for mobile */
-@media (max-width: 768px) {
-    .navbar-brand img {
-        width: 40px;
-    }
-}
-
-/* Smallest phones */
-@media (max-width: 480px) {
-    .navbar-brand img {
-        width: 35px;
-    }
-}
-
-
-    /* Simple spinning animation */
-    @keyframes spin {
-        from { transform: rotate(0deg); }
-        to { transform: rotate(360deg); }
-    }
-
-    /* Navbar links */
-    .navbar-nav > li > a {
-        font-size: 18px;
-        font-weight: 500;
-    }
+   
 
     /* Ensure the image stays circular */
 .product-logo {
@@ -168,7 +103,26 @@
                         </button>
                         <a class ="navbar-brand" href="Default.aspx" ><span><img src="icons/NA.jpg" alt="Not Amazon"/></span>Not Amazon</a>
 
+
                     </div>
+                                            <!-- adding the geo location service and will add the javacrsipt in customjs.js -->
+
+
+
+                        <div class="location-service">
+                            <select id="locationDropdown">
+                                <option value="">Select Location</option>
+                                <option value="newyork">New York</option>
+                                <option value="losangeles">Los Angeles</option>
+                                <option value="chicago">Chicago</option>
+                                <option value="houston">Houston</option>
+                            </select>
+                            <button onclick="getLocation()">📍 Detect</button>
+                        </div>
+
+
+
+
                     <div class="navbar-collapse collapse">
                         <ul class ="nav navbar-nav navbar-right">
                             <li class="active"><a href ="Default.aspx">Home</a> </li>
@@ -198,7 +152,8 @@
                                 </ul>
                             </li>
 
-                            <li><a href ="SignUp.aspx">Register</a> </li>
+                            <li><a href ="SignUp.aspx">Sign Up</a> </li>
+                            <li><a href ="SignIn.aspx">Login</a> </li>
                         </ul>
                     </div>
 
@@ -494,6 +449,48 @@
 
         <!--  -----------------Footer Ends -->
     </form>
+
+
+
+
+
+    <script>
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition, showError);
+    } else {
+        alert("Geolocation is not supported by this browser.");
+    }
+}
+
+function showPosition(position) {
+    let lat = position.coords.latitude;
+    let lon = position.coords.longitude;
+
+    alert("Your location: \nLatitude: " + lat + "\nLongitude: " + lon);
+    
+    // TODO: You can call a reverse-geocoding API like Google Maps or OpenStreetMap
+    // to get the actual city name and set it in the dropdown.
+}
+
+function showError(error) {
+    switch(error.code) {
+        case error.PERMISSION_DENIED:
+            alert("User denied the request for Geolocation.");
+            break;
+        case error.POSITION_UNAVAILABLE:
+            alert("Location information is unavailable.");
+            break;
+        case error.TIMEOUT:
+            alert("The request to get user location timed out.");
+            break;
+        case error.UNKNOWN_ERROR:
+            alert("An unknown error occurred.");
+            break;
+    }
+}
+    </script>
+
 
 
 </body>
