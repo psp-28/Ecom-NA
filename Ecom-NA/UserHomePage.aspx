@@ -13,8 +13,7 @@
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
       <link href="css/Custom.css" rel="stylesheet" />
       <script src="js/Customjs.js"></script>
-
-
+    r
 
 </head>
 <body>

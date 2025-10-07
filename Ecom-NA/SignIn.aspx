@@ -161,18 +161,24 @@
                 Don’t have an account? <a href="SignUp.aspx">Sign Up</a>
             </p>
 
+            <!--Forget password-->
+
+            <div class="form-group row">
+                <div class="col-md-12 text-center">
+
+                    <asp:HyperLink ID="ForgotPassword" runat="server" NavigateUrl="~/ForgetPassword.aspx">Forgot Password ?</asp:HyperLink>      
+                </div>
+            </div>
+
             <hr />
 
-            <div class="form-group">
-                <div class="col-md-2">
-                    <div class="col-md-6">
-
-                        <asp:Label ID="lblError" CssClass="text-danger" runat="server" Text="Label"></asp:Label>
-
-                    </div>
-                </div>
-
+            <div class="form-group row">
+                <asp:Label ID="lblError" runat="server" CssClass="text-danger"></asp:Label>
             </div>
+            
+
+
+
         </div>
   
 
