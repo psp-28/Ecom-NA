@@ -56,6 +56,7 @@ namespace Ecom_NA
 
                 }
             }
+            BindBrandRepeater();
         }
 
         protected void txtID_TextChanged(object sender, EventArgs e)

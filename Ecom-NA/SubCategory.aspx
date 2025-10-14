@@ -61,17 +61,18 @@
 
  <div class="panel panel-default">
 
-               <div class="panel-heading"> All Brands</div>
+               <div class="panel-heading"> All Sub Categories</div>
 
 
-     <asp:repeater ID="rptrBrands" runat="server">
+     <asp:repeater ID="rptrSubCategory" runat="server">
 
          <HeaderTemplate>
              <table class="table">
                   <thead>
                     <tr>
                         <th>#</th>
-                        <th>Brand</th>
+                        <th>Sub-Categories</th>
+                        <th>Main Category</th>
                         <th>Edit</th>
 
                     </tr>
@@ -86,9 +87,11 @@
 
          <ItemTemplate>
              <tr>
-                    <th> <%# Eval("CatID") %> </th>
+                    <th> <%# Eval("SubCatID") %> </th>
+                    <td><%# Eval("SubCatName") %>   </td>
                     <td><%# Eval("CatName") %>   </td>
 
+                 
                     <td>Edit</td>
                 </tr>
          </ItemTemplate>

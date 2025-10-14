@@ -14,9 +14,29 @@ namespace Ecom_NA
             if (!IsPostBack)
             {
                 bindMainCat();
-            }
 
+
+                BindSubCategoryRepeater();   // This is the method to bind the data for the repeater table on the page like it will display the list of available entries in the database to the webpage.
+            }
         }
+
+        private void BindSubCategoryRepeater()
+        {
+            using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["EcomNADB"].ConnectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand("select A.*,B.* from tblSubCategory A inner join tblCategory B on B.CatID= A.MainCatID;", con))
+                {
+                    using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
+                    {
+                        DataTable dt = new DataTable();
+                        sda.Fill(dt);
+                        rptrSubCategory.DataSource = dt;
+                        rptrSubCategory.DataBind();
+                    }
+                }
+            }
+        }
+
 
         protected void btnAddSubCategory_Click(object sender, EventArgs e)
         {
@@ -35,6 +55,7 @@ namespace Ecom_NA
 
 
             }
+            BindSubCategoryRepeater();  //when added the data we will call this function so at a time it will update the below table on the web page without making page to refresh.
 
         }
 

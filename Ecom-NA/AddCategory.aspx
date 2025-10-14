@@ -41,22 +41,22 @@
 
             </div>
 
-        <h1>Brands</h1>
+        <h1>Categories</h1>
         <hr />
 
  <div class="panel panel-default">
 
-               <div class="panel-heading"> All Brands</div>
+               <div class="panel-heading"> All Categories</div>
 
 
-     <asp:repeater ID="rptrBrands" runat="server">
+     <asp:repeater ID="rptrCategory" runat="server">
 
          <HeaderTemplate>
              <table class="table">
                   <thead>
                     <tr>
                         <th>#</th>
-                        <th>Brand</th>
+                        <th>Categories</th>
                         <th>Edit</th>
 
                     </tr>

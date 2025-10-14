@@ -11,7 +11,7 @@ namespace Ecom_NA
 {
 
 
-    public partial class AddCategory
+    public partial class AddGender
     {
 
         /// <summary>
@@ -24,39 +24,39 @@ namespace Ecom_NA
         protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
-        /// txtCategory control.
+        /// txtGender control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCategory;
+        protected global::System.Web.UI.WebControls.TextBox txtGender;
 
         /// <summary>
-        /// RequiredFieldValidatorCategoryName control.
+        /// RequiredFieldValidatorGender control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorCategoryName;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorGender;
 
         /// <summary>
-        /// btnAddtxtCategory control.
+        /// btnAddGender control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAddtxtCategory;
+        protected global::System.Web.UI.WebControls.Button btnAddGender;
 
         /// <summary>
-        /// rptrCategory control.
+        /// rptrGender control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptrCategory;
+        protected global::System.Web.UI.WebControls.Repeater rptrGender;
     }
 }
