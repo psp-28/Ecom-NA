@@ -79,7 +79,7 @@ namespace Ecom_NA
                     {
                         client.EnableSsl = true;
                         client.UseDefaultCredentials = false;
-                        client.Credentials = new NetworkCredential("notamazon.na@gmail.com", "eeizcwmhpffjxxxz");
+                        client.Credentials = new NetworkCredential("notamazon.na@gmail.com", "abcdefghijk");
                         client.Host = "smtp.gmail.com";
                         client.Port = 587;
                         client.DeliveryMethod = SmtpDeliveryMethod.Network;
